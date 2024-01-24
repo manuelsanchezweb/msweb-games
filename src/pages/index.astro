@@ -1,0 +1,59 @@
+---
+import Games from "@/components/Games.astro";
+import ImageMod from "@/components/ImageMod.astro";
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { Button } from "@/types";
+import { getEntry } from "astro:content";
+
+interface Homepage {
+  banner: {
+    title: string;
+    content: string;
+    image: string;
+    button: Button;
+  };
+}
+
+const homepage = await getEntry("homepage", "-index");
+const { banner }: Homepage = homepage.data;
+---
+
+<Base>
+  <!-- Banner -->
+  <section class="section pt-14 pb-4">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="text-center lg:col-7">
+          <h1 set:html={markdownify(banner.title)} class="mb-4 text-8xl" />
+          <p set:html={markdownify(banner.content)} class="mb-8" />
+          {
+            banner.button.enable && (
+              <a class="btn btn-primary" href={banner.button.link}>
+                {banner.button.label}
+              </a>
+            )
+          }
+        </div>
+        {
+          banner.image && (
+            <div class="col-12">
+              <ImageMod
+                src={banner.image}
+                height={380}
+                width={1200}
+                alt="banner image"
+                format="webp"
+              />
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </section>
+  <!-- /Banner -->
+
+  <!-- Games -->
+  <Games />
+  <!-- Games -->
+</Base>

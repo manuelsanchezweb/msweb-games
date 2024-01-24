@@ -1,0 +1,175 @@
+---
+import ImageMod from "./ImageMod.astro";
+import NextJS from "./icons/IconNextjs.astro";
+import Tailwind from "./icons/IconTailwind.astro";
+import Unity from "./icons/IconUnity.astro";
+import Preact from "./icons/IconPreact.astro";
+import Js from "./icons/IconJs.astro";
+import Ts from "./icons/IconTs.astro";
+import IconWeb from "./icons/IconWeb.astro";
+import IconGithub from "./icons/IconGithub.astro";
+import IconReact from "./icons/IconReact.astro";
+import IconThreejs from "./icons/IconThreejs.astro";
+import IconExcalibur from "./icons/IconExcalibur.astro";
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  PREACT: {
+    name: "Preact",
+    class: "bg-[#673AB8] text-white",
+    icon: Preact,
+  },
+  UNITY: {
+    name: "Unity",
+    class: "bg-[#000000] text-white",
+    icon: Unity,
+  },
+  JS: {
+    name: "JavaScript",
+    class: "bg-[#F7DF1E] text-black",
+    icon: Js,
+  },
+  TS: {
+    name: "TypeScript",
+    class: "bg-[#007ACC] text-white",
+    icon: Ts,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-[#61DAFB] text-black",
+    icon: IconReact,
+  },
+  THREEJS: {
+    name: "Three.js",
+    class: "bg-[#000000] text-white",
+    icon: IconThreejs,
+  },
+  EXCALIBUR: {
+    name: "Excalibur.js",
+    class: "bg-[#000000] text-white",
+    icon: IconExcalibur,
+  },
+};
+
+const games = [
+  {
+    name: "Retro World Engine",
+    imageUrl: "/images/games/rpg-retro-world-engine.png",
+    liveLink: "https://ts-rpg-game.vercel.app/",
+    githubLink: "",
+    technologies: [TAGS.TS, TAGS.PREACT, TAGS.TAILWIND],
+  },
+  {
+    name: "Remake DBZ: Legendary Super Warriors",
+    imageUrl: "/images/games/dbz-legendary-super-warriors.png",
+    liveLink: "https://dbz-lsw-remake.vercel.app/",
+    githubLink: "",
+    technologies: [TAGS.EXCALIBUR, TAGS.TS],
+  },
+  {
+    name: "Action Puzzle Game with Next.js",
+    imageUrl: "/images/games/rpg-retro-world-engine.png",
+    liveLink: "https://youtu.be/link3",
+    technologies: [TAGS.NEXT, TAGS.TS, TAGS.TAILWIND],
+  },
+  {
+    name: "Multiplayer Game with Excaliburjs and Peer.js",
+    imageUrl: "/images/games/rpg-retro-world-engine.png",
+    liveLink: "https://youtu.be/link4",
+    technologies: [TAGS.EXCALIBUR, TAGS.TS],
+  },
+  {
+    name: "Minecraft Clone",
+    imageUrl: "/images/games/minecraft-clone-react.png",
+    githubLink: "https://github.com/manuelsanchezweb/minecraft-threejs-react",
+    liveLink: "https://minecraft-threejs-react.vercel.app/",
+    technologies: [TAGS.REACT, TAGS.THREEJS, TAGS.TS],
+  },
+  {
+    name: "RPG Turn Based Pizza Legends",
+    imageUrl: "/images/games/rpg-pizza-legends.png",
+    githubLink: "https://github.com/manuelsanchez2/pizzalegends",
+    liveLink: "https://pizzalegends-rpg.netlify.app/",
+    technologies: [TAGS.JS],
+  },
+  {
+    name: "RPG Adventure with Unity",
+    imageUrl: "/images/games/rpg-pizza-legends.png",
+    githubLink: "",
+    liveLink: "",
+    technologies: [TAGS.UNITY],
+  },
+];
+---
+
+<section
+  class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2 pb-16"
+  data-test="articles-section"
+>
+  {
+    games.map((game, index) => (
+      <div class="col-span-1 relative group">
+        <div class="top-0 hover:-top-2 border rounded-xl border-black bg-white overflow-hidden">
+          <a
+            href="/posts/installing-go-on-a-mac"
+            class="transition-all duration-75 ease-in-out h-full block squiggle"
+          >
+            <ImageMod
+              class="border border-black opacity-70 group-hover:opacity-100 transition-all duration-75 ease-in-out aspect-video object-cover"
+              src={game.imageUrl}
+              alt={game.name}
+              width={700}
+              height={500}
+            />
+          </a>
+          <div class="py-6 px-8">
+            <h2 class="font-bold text-2xl leading-tight dark:text-light">
+              {game.name}
+            </h2>
+            <p class="text-xs  mt-4 flex items-center">
+              <ul class="flex gap-x-2 flex-row mb-2">
+                {game.technologies.map((tag) => (
+                  <li>
+                    <span
+                      class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                    >
+                      <tag.icon class="size-4" />
+                      {tag.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </p>
+          </div>
+        </div>
+        <header class="scale-0 group-hover:scale-100 transition-transform duration-300 gap-x-1 items-end justify-start mt-4 absolute top-2 right-2 z-10">
+          {game.githubLink && (
+            <a
+              href={game.githubLink}
+              class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110 hover:bg-white/10"
+            >
+              <IconGithub class="size-6" />
+            </a>
+          )}
+          {game.liveLink && (
+            <a
+              href={game.liveLink}
+              class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110 hover:bg-white/10"
+            >
+              <IconWeb class="size-6" />
+            </a>
+          )}
+        </header>
+      </div>
+    ))
+  }
+</section>

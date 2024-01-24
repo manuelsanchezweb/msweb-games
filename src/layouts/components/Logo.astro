@@ -1,0 +1,44 @@
+---
+import config from "@/config/config.json";
+import ImageMod from "./ImageMod.astro";
+
+const { src, srcDarkmode }: { src?: string; srcDarkmode?: string } =
+  Astro.props;
+const {
+  logo,
+  logo_darkmode,
+  logo_width,
+  logo_height,
+  logo_text,
+  title,
+}: {
+  logo: string;
+  logo_darkmode: string;
+  logo_width: any;
+  logo_height: any;
+  logo_text: string;
+  title: string;
+} = config.site;
+
+const { theme_switcher }: { theme_switcher: boolean } = config.settings;
+---
+
+<a
+  href="/"
+  class="navbar-brand inline-block hover:scale-105 focus-visible:scale-105 transition-transform"
+>
+  {
+    src || srcDarkmode || logo || logo_darkmode ? (
+      <>
+        <p class="dark:hidden">manuelsanchezweb - games</p>
+        {theme_switcher && (
+          <p class="hidden dark:inline-block">manuelsanchezweb - games</p>
+        )}
+      </>
+    ) : logo_text ? (
+      logo_text
+    ) : (
+      title
+    )
+  }
+</a>
