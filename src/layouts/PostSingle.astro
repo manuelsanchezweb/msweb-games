@@ -1,7 +1,6 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
 import Share from "@/components/Share.astro";
-import Disqus from "@/helpers/Disqus";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import dateFormat from "@/lib/utils/dateFormat";
 import similarItems from "@/lib/utils/similarItems";
@@ -12,6 +11,7 @@ import {
   FaRegUserCircle,
 } from "react-icons/fa/index.js";
 import ImageMod from "./components/ImageMod.astro";
+import Breadcrumbs from "./components/Breadcrumbs.astro";
 
 const COLLECTION_FOLDER = "blog";
 const { post } = Astro.props;
@@ -26,6 +26,7 @@ const { title, description, author, categories, image, date, tags } = post.data;
   <div class="container">
     <div class="row justify-center">
       <article class="lg:col-10">
+        <Breadcrumbs className="my-6" />
         {
           image && (
             <div class="mb-10">
@@ -69,7 +70,7 @@ const { title, description, author, categories, image, date, tags } = post.data;
         </div>
         <div class="row items-start justify-between">
           <div class="mb-10 flex items-center lg:col-5 lg:mb-0">
-            <h5 class="mr-3">Tags :</h5>
+            <div class="mr-3">Tags :</div>
             <ul>
               {
                 tags.map((tag: string) => (
@@ -86,7 +87,7 @@ const { title, description, author, categories, image, date, tags } = post.data;
             </ul>
           </div>
           <div class="flex items-center lg:col-4">
-            <h5 class="mr-3">Share :</h5>
+            <div class="mr-3">Share :</div>
             <Share
               className="social-icons"
               title={title}
@@ -95,7 +96,6 @@ const { title, description, author, categories, image, date, tags } = post.data;
             />
           </div>
         </div>
-        <Disqus className="mt-20" client:load />
       </article>
     </div>
 

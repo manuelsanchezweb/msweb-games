@@ -63,13 +63,15 @@ const TAGS = {
 const games = [
   {
     name: "Retro World Engine",
+    blogUrl: "/blog/post-2",
     imageUrl: "/images/games/rpg-retro-world-engine.png",
     liveLink: "https://ts-rpg-game.vercel.app/",
     githubLink: "",
     technologies: [TAGS.TS, TAGS.PREACT, TAGS.TAILWIND],
   },
   {
-    name: "Remake DBZ: Legendary Super Warriors",
+    name: "DBZ: Legendary Super Warriors",
+    blogUrl: "/blog/dbz-lsw-remake",
     imageUrl: "/images/games/dbz-legendary-super-warriors.png",
     liveLink: "https://dbz-lsw-remake.vercel.app/",
     githubLink: "",
@@ -77,18 +79,21 @@ const games = [
   },
   {
     name: "Action Puzzle Game with Next.js",
-    imageUrl: "/images/games/rpg-retro-world-engine.png",
+    blogUrl: "/blog/post-2",
+    imageUrl: "/images/games/action-puzzle-nextjs.png",
     liveLink: "https://youtu.be/link3",
     technologies: [TAGS.NEXT, TAGS.TS, TAGS.TAILWIND],
   },
   {
-    name: "Multiplayer Game with Excaliburjs and Peer.js",
+    name: "Multiplayer w/ Excaliburjs and Peer.js",
+    blogUrl: "/blog/minecraft-clone",
     imageUrl: "/images/games/rpg-retro-world-engine.png",
     liveLink: "https://youtu.be/link4",
     technologies: [TAGS.EXCALIBUR, TAGS.TS],
   },
   {
     name: "Minecraft Clone",
+    blogUrl: "/blog/minecraft-clone",
     imageUrl: "/images/games/minecraft-clone-react.png",
     githubLink: "https://github.com/manuelsanchezweb/minecraft-threejs-react",
     liveLink: "https://minecraft-threejs-react.vercel.app/",
@@ -96,6 +101,7 @@ const games = [
   },
   {
     name: "RPG Turn Based Pizza Legends",
+    blogUrl: "/blog/minecraft-clone",
     imageUrl: "/images/games/rpg-pizza-legends.png",
     githubLink: "https://github.com/manuelsanchez2/pizzalegends",
     liveLink: "https://pizzalegends-rpg.netlify.app/",
@@ -103,7 +109,8 @@ const games = [
   },
   {
     name: "RPG Adventure with Unity",
-    imageUrl: "/images/games/rpg-pizza-legends.png",
+    blogUrl: "/games/minecraft-clone",
+    imageUrl: "/images/games/rpg-adventure-unity.png",
     githubLink: "",
     liveLink: "",
     technologies: [TAGS.UNITY],
@@ -113,14 +120,13 @@ const games = [
 
 <section
   class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2 pb-16"
-  data-test="articles-section"
 >
   {
     games.map((game, index) => (
       <div class="col-span-1 relative group">
         <div class="top-0 hover:-top-2 border rounded-xl border-black bg-white overflow-hidden">
           <a
-            href="/posts/installing-go-on-a-mac"
+            href={game.blogUrl}
             class="transition-all duration-75 ease-in-out h-full block squiggle"
           >
             <ImageMod
@@ -154,16 +160,20 @@ const games = [
         <header class="scale-0 group-hover:scale-100 transition-transform duration-300 gap-x-1 items-end justify-start mt-4 absolute top-2 right-2 z-10">
           {game.githubLink && (
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               href={game.githubLink}
-              class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110 hover:bg-white/10"
+              class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110"
             >
               <IconGithub class="size-6" />
             </a>
           )}
           {game.liveLink && (
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               href={game.liveLink}
-              class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110 hover:bg-white/10"
+              class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110"
             >
               <IconWeb class="size-6" />
             </a>
