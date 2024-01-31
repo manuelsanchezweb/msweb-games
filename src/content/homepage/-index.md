@@ -2,7 +2,7 @@
 # Banner
 banner:
   title: "List of my latest games"
-  content: "Check all the cool things I am doing!"
+  content: "Check all the cool things I have been doing!"
   button:
     enable: false
     label: "Get Started For Free"
