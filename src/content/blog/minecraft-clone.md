@@ -2,7 +2,7 @@
 title: "Minecraft Clone with React and Threejs"
 meta_title: "Minecraft Clone with React and Threejs"
 description: "this is meta description"
-date: 2022-04-04T05:00:00Z
+date: 2022-10-31T05:00:00Z
 image: "/images/games/minecraft-clone-react.png"
 categories: ["Game Development"]
 author: "Manuel Sanchez"
@@ -19,6 +19,6 @@ Although I've always been more interested in the 2D world, I hadn't focused much
 - Save World in Local Storage
 - Texture Selector
 
-**Repo link**: [here.](https://github.com/manuelsanchezweb/minecraft-threejs-react)
+Repo link <a href="https://github.com/manuelsanchezweb/minecraft-threejs-react" target="_blank">here!</a>
 
-**Deploy link**: [here.](https://minecraft-threejs-react.vercel.app/)
+Deploy link <a href="https://minecraft-threejs-react.vercel.app/" target="_blank">here!</a>

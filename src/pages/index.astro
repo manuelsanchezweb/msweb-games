@@ -1,5 +1,6 @@
 ---
 import Games from "@/components/Games.astro";
+import GamesClassic from "@/components/GamesClassic.astro";
 import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import { markdownify } from "@/lib/utils/textConverter";
@@ -53,6 +54,20 @@ const { banner }: Homepage = homepage.data;
   </section>
   <!-- /Banner -->
 
+  <section class="section pt-14 pb-4">
+    <div class="container text-center">
+      <h2>Classical Games</h2>
+    </div>
+  </section>
+  <!-- Games -->
+  <GamesClassic />
+  <!-- Games -->
+
+  <section class="section pt-14 pb-4">
+    <div class="container text-center">
+      <h2>The coolest of the coolest</h2>
+    </div>
+  </section>
   <!-- Games -->
   <Games />
   <!-- Games -->

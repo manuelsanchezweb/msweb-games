@@ -2,7 +2,7 @@
 title: "Multiplayer Excaliburjs Peerjs"
 meta_title: "Multiplayer Excaliburjs Peerjs"
 description: "Discover how to create easy multiplayers"
-date: 2022-04-04T05:00:00Z
+date: 2023-12-26T05:00:00Z
 image: "/images/games/multiplayer-excaliburjs-peerjs.png"
 categories: ["Game Development"]
 author: "Manuel Sanchez"

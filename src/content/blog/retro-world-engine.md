@@ -2,7 +2,7 @@
 title: "Retro World Engine"
 meta_title: "Retro World Engine"
 description: "Discover how to create easily your own worlds by using this engine"
-date: 2022-04-04T05:00:00Z
+date: 2023-10-31T05:00:00Z
 image: "/images/games/rpg-retro-world-engine.png"
 categories: ["Game Development"]
 author: "Manuel Sanchez"

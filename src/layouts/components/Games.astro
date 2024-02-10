@@ -124,68 +124,76 @@ const games = [
 ];
 ---
 
-<section
-  class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2 pb-16"
->
-  {
-    games.map((game, index) => (
-      <div class="col-span-1 relative group">
-        <div class="top-0 hover:-top-2 border rounded-xl border-black bg-white overflow-hidden">
-          <a
-            href={game.blogUrl}
-            class="transition-all duration-75 ease-in-out h-full block squiggle"
-          >
-            <ImageMod
-              class="border border-black opacity-70 group-hover:opacity-100 transition-all duration-75 ease-in-out aspect-video object-cover"
-              src={game.imageUrl}
-              alt={game.name}
-              width={700}
-              height={500}
-            />
-          </a>
-          <div class="py-6 px-8">
-            <h2 class="font-bold text-2xl leading-tight dark:text-light">
-              {game.name}
-            </h2>
-            <p class="text-xs  mt-4 flex items-center">
-              <ul class="flex flex-wrap gap-2 flex-row mb-2">
-                {game.technologies.map((tag) => (
-                  <li>
-                    <span
-                      class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-                    >
-                      <tag.icon class="size-4" />
-                      {tag.name}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </p>
+<section class="container mx-auto pt-2 pb-16">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-5xl gap-6 mx-auto my-6"
+  >
+    {
+      games.slice(0, 6).map((game, index) => (
+        <div class="col-span-1 relative group">
+          <div class="top-0 hover:-top-2 border rounded-xl border-black bg-white overflow-hidden">
+            <a
+              href={game.blogUrl}
+              class="transition-all duration-75 ease-in-out h-full block squiggle"
+            >
+              <ImageMod
+                class="border border-black opacity-70 group-hover:opacity-100 transition-all duration-75 ease-in-out aspect-video object-cover"
+                src={game.imageUrl}
+                alt={game.name}
+                width={700}
+                height={500}
+              />
+            </a>
+            <div class="py-3 px-4">
+              <h3 class="font-bold text-xl leading-tight dark:text-light">
+                {game.name}
+              </h3>
+              <div class="text-xs  mt-4 flex items-center">
+                <ul class="flex flex-wrap gap-2 flex-row mb-2">
+                  {game.technologies.map((tag) => (
+                    <li>
+                      <span
+                        class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                      >
+                        <tag.icon class="size-4" />
+                        {tag.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
+          <header class="scale-0 group-hover:scale-100 transition-transform duration-300 gap-x-1 items-end justify-start mt-4 absolute top-2 right-2 z-10">
+            {game.githubLink && (
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={game.githubLink}
+                class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110"
+              >
+                <IconGithub class="size-6" />
+              </a>
+            )}
+            {game.liveLink && (
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={game.liveLink}
+                class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110"
+              >
+                <IconWeb class="size-6" />
+              </a>
+            )}
+          </header>
         </div>
-        <header class="scale-0 group-hover:scale-100 transition-transform duration-300 gap-x-1 items-end justify-start mt-4 absolute top-2 right-2 z-10">
-          {game.githubLink && (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={game.githubLink}
-              class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110"
-            >
-              <IconGithub class="size-6" />
-            </a>
-          )}
-          {game.liveLink && (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={game.liveLink}
-              class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110"
-            >
-              <IconWeb class="size-6" />
-            </a>
-          )}
-        </header>
-      </div>
-    ))
-  }
+      ))
+    }
+  </div>
+  <a
+    href="/blog"
+    class="text-center text-lg font-bold text-black dark:text-light w-full flex justify-center mt-12"
+  >
+    More Games
+  </a>
 </section>

@@ -2,7 +2,7 @@
 title: "Remake Dragon Ball Z: Legendary Super Warriors"
 meta_title: "Remake of that Game Color amazing game"
 description: "Remake of that Game Color amazing game"
-date: 2022-04-04T05:00:00Z
+date: 2023-11-30T05:00:00Z
 image: "/images/games/dbz-legendary-super-warriors.png"
 categories: ["Game Development"]
 author: "Manuel Sanchez"
@@ -14,4 +14,4 @@ Even though I don’t work on this project as much as I’d like, it’s somethi
 
 ![opening-dbz-legendary-super-warriors-remake](/images/games/dbz-legendary-super-warriors-opening.png)
 
-**Deploy link**: [here.](https://dbz-lsw-remake.vercel.app/)
+Deploy link <a href="https://dbz-lsw-remake.vercel.app/" target="_blank">here!</a>

@@ -1,7 +1,7 @@
 ---
 # Banner
 banner:
-  title: "List of my latest games"
+  title: "Latest games"
   content: "Check all the cool things I have been doing!"
   button:
     enable: false
