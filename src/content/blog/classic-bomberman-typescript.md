@@ -1,6 +1,6 @@
 ---
-title: "Two-Player Bomberman done with TypeScript"
-meta_title: "Two-Player Bomberman done with TypeScript"
+title: "2 Player Bomberman done with TypeScript"
+meta_title: "2 Player Bomberman done with TypeScript"
 description: "Play this classical game with one keyboard against somebody else!"
 date: 2024-02-08T05:00:00Z
 image: "/images/games/classic-bomberman-typescript.png"

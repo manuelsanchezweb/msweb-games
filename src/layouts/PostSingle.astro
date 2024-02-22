@@ -104,7 +104,7 @@ const { title, description, author, categories, image, date, tags } = post.data;
       <h3 class="h3 mb-12 text-center">Related Posts</h3>
       <div class="row justify-center space-y-8">
         {
-          similarPosts.map((post) => (
+          similarPosts.slice(0, 6).map((post) => (
             <div class="lg:col-4">
               <BlogCard data={post} />
             </div>
