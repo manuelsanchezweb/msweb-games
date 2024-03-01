@@ -114,11 +114,18 @@ const classicGames = [
     githubLink: "https://github.com/manuelsanchezweb/quiz-german-knowledge",
     technologies: [TAGS.TS, TAGS.REACT],
   },
+  {
+    name: "Guess the character",
+    blogUrl: "/blog/classic-guess-the-character",
+    imageUrl: "/images/games/classic-guess-the-character.png",
+    liveLink: "https://ts-guess-the-character.vercel.app/",
+    technologies: [TAGS.TS, TAGS.REACT],
+  },
 ];
 ---
 
 <section
-  class="container mx-auto grid grid-cols-1 md:grid-cols-2 max-w-5xl gap-6 pt-2 pb-16"
+  class="container mx-auto grid grid-cols-1 md:grid-cols-4 max-w-5xl gap-6 pt-2 pb-16"
 >
   {
     classicGames.map((game, index) => (
