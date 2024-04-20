@@ -1,127 +1,127 @@
 ---
-import ImageMod from "./ImageMod.astro";
-import NextJS from "./icons/IconNextjs.astro";
-import Tailwind from "./icons/IconTailwind.astro";
-import Unity from "./icons/IconUnity.astro";
-import Preact from "./icons/IconPreact.astro";
-import Js from "./icons/IconJs.astro";
-import Ts from "./icons/IconTs.astro";
-import IconWeb from "./icons/IconWeb.astro";
-import IconGithub from "./icons/IconGithub.astro";
-import IconReact from "./icons/IconReact.astro";
-import IconThreejs from "./icons/IconThreejs.astro";
-import IconExcalibur from "./icons/IconExcalibur.astro";
-import IconWarning from "./icons/IconWarning.astro";
+import ImageMod from './ImageMod.astro'
+import NextJS from './icons/IconNextjs.astro'
+import Tailwind from './icons/IconTailwind.astro'
+import Unity from './icons/IconUnity.astro'
+import Preact from './icons/IconPreact.astro'
+import Js from './icons/IconJs.astro'
+import Ts from './icons/IconTs.astro'
+import IconWeb from './icons/IconWeb.astro'
+import IconGithub from './icons/IconGithub.astro'
+import IconReact from './icons/IconReact.astro'
+import IconThreejs from './icons/IconThreejs.astro'
+import IconExcalibur from './icons/IconExcalibur.astro'
+import IconWarning from './icons/IconWarning.astro'
 
 const TAGS = {
   NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
+    name: 'Next.js',
+    class: 'bg-black text-white',
     icon: NextJS,
   },
   TAILWIND: {
-    name: "Tailwind CSS",
-    class: "bg-[#003159] text-white",
+    name: 'Tailwind CSS',
+    class: 'bg-[#003159] text-white',
     icon: Tailwind,
   },
   PREACT: {
-    name: "Preact",
-    class: "bg-[#673AB8] text-white",
+    name: 'Preact',
+    class: 'bg-[#673AB8] text-white',
     icon: Preact,
   },
   UNITY: {
-    name: "Unity",
-    class: "bg-[#000000] text-white",
+    name: 'Unity',
+    class: 'bg-[#000000] text-white',
     icon: Unity,
   },
   JS: {
-    name: "JavaScript",
-    class: "bg-[#F7DF1E] text-black",
+    name: 'JavaScript',
+    class: 'bg-[#F7DF1E] text-black',
     icon: Js,
   },
   TS: {
-    name: "TypeScript",
-    class: "bg-[#007ACC] text-white",
+    name: 'TypeScript',
+    class: 'bg-[#007ACC] text-white',
     icon: Ts,
   },
   REACT: {
-    name: "React",
-    class: "bg-[#61DAFB] text-black",
+    name: 'React',
+    class: 'bg-[#61DAFB] text-black',
     icon: IconReact,
   },
   THREEJS: {
-    name: "Three.js",
-    class: "bg-[#000000] text-white",
+    name: 'Three.js',
+    class: 'bg-[#000000] text-white',
     icon: IconThreejs,
   },
   EXCALIBUR: {
-    name: "Excalibur.js",
-    class: "bg-[#000000] text-white",
+    name: 'Excalibur.js',
+    class: 'bg-[#000000] text-white',
     icon: IconExcalibur,
   },
   WARNING: {
-    name: "WIP",
-    class: "bg-[#ffce00] text-black",
+    name: 'WIP',
+    class: 'bg-[#ffce00] text-black',
     icon: IconWarning,
   },
-};
+}
 
 const games = [
   {
-    name: "Retro World Engine",
-    blogUrl: "/blog/retro-world-engine",
-    imageUrl: "/images/games/rpg-retro-world-engine.png",
-    liveLink: "https://ts-rpg-game.vercel.app/",
-    githubLink: "",
+    name: 'Retro World Engine',
+    blogUrl: '/blog/retro-world-engine',
+    imageUrl: '/images/games/rpg-retro-world-engine.png',
+    liveLink: 'https://ts-rpg-game.vercel.app/',
+    githubLink: '',
     technologies: [TAGS.TS, TAGS.PREACT, TAGS.TAILWIND, TAGS.WARNING],
   },
   {
-    name: "DBZ: Legendary Super Warriors",
-    blogUrl: "/blog/dbz-lsw-remake",
-    imageUrl: "/images/games/dbz-legendary-super-warriors.png",
-    liveLink: "https://dbz-lsw-remake.vercel.app/",
-    githubLink: "",
+    name: 'DBZ: Legendary Super Warriors',
+    blogUrl: '/blog/dbz-lsw-remake',
+    imageUrl: '/images/games/dbz-legendary-super-warriors.png',
+    liveLink: 'https://dbz-lsw-remake.vercel.app/',
+    githubLink: '',
     technologies: [TAGS.EXCALIBUR, TAGS.TS, TAGS.WARNING],
   },
   {
-    name: "Action Puzzle Game with Next.js",
-    blogUrl: "/blog/ciabatta-puzzle-game",
-    imageUrl: "/images/games/action-puzzle-nextjs.png",
-    liveLink: "https://youtu.be/link3",
+    name: 'Action Puzzle Game with Next.js',
+    blogUrl: '/blog/ciabatta-puzzle-game',
+    imageUrl: '/images/games/action-puzzle-nextjs.png',
+    liveLink: 'https://youtu.be/link3',
     technologies: [TAGS.NEXT, TAGS.TS, TAGS.TAILWIND],
   },
   {
-    name: "Multiplayer w/ Excaliburjs and Peer.js",
-    blogUrl: "/blog/multiplayer-excaliburjs-peerjs",
-    imageUrl: "/images/games/multiplayer-excaliburjs-peerjs.png",
-    liveLink: "https://youtu.be/link4",
+    name: 'Multiplayer w/ Excaliburjs and Peer.js',
+    blogUrl: '/blog/multiplayer-excaliburjs-peerjs',
+    imageUrl: '/images/games/multiplayer-excaliburjs-peerjs.png',
+    liveLink: 'https://youtu.be/link4',
     technologies: [TAGS.EXCALIBUR, TAGS.TS],
   },
   {
-    name: "Minecraft Clone",
-    blogUrl: "/blog/minecraft-clone",
-    imageUrl: "/images/games/minecraft-clone-react.png",
-    githubLink: "https://github.com/manuelsanchezweb/minecraft-threejs-react",
-    liveLink: "https://minecraft-threejs-react.vercel.app/",
+    name: 'Minecraft Clone',
+    blogUrl: '/blog/minecraft-clone',
+    imageUrl: '/images/games/minecraft-clone-react.png',
+    githubLink: 'https://github.com/manuelsanchezweb/minecraft-threejs-react',
+    liveLink: 'https://minecraft-threejs-react.vercel.app/',
     technologies: [TAGS.REACT, TAGS.THREEJS, TAGS.TS],
   },
   {
-    name: "RPG Turn Based Pizza Legends",
-    blogUrl: "/blog/rpg-turn-based-pizza-legends",
-    imageUrl: "/images/games/rpg-pizza-legends.png",
-    githubLink: "https://github.com/manuelsanchez2/pizzalegends",
-    liveLink: "https://pizzalegends-rpg.netlify.app/",
+    name: 'RPG Turn Based Pizza Legends',
+    blogUrl: '/blog/rpg-turn-based-pizza-legends',
+    imageUrl: '/images/games/rpg-pizza-legends.png',
+    githubLink: 'https://github.com/manuelsanchez2/pizzalegends',
+    liveLink: 'https://pizzalegends-rpg.netlify.app/',
     technologies: [TAGS.JS],
   },
   {
-    name: "RPG Adventure with Unity",
-    blogUrl: "/blog/rpg-adventure-game-unity",
-    imageUrl: "/images/games/rpg-adventure-unity.png",
-    githubLink: "",
-    liveLink: "",
+    name: 'RPG Adventure with Unity',
+    blogUrl: '/blog/rpg-adventure-game-unity',
+    imageUrl: '/images/games/rpg-adventure-unity.png',
+    githubLink: '',
+    liveLink: '',
     technologies: [TAGS.UNITY, TAGS.WARNING],
   },
-];
+]
 ---
 
 <section class="container mx-auto pt-2 pb-16">
@@ -151,12 +151,11 @@ const games = [
               <div class="text-xs  mt-4 flex items-center">
                 <ul class="flex flex-wrap gap-2 flex-row mb-2">
                   {game.technologies.map((tag) => (
-                    <li>
+                    <li title={tag.name}>
                       <span
                         class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
                       >
                         <tag.icon class="size-4" />
-                        {tag.name}
                       </span>
                     </li>
                   ))}

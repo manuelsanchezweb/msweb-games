@@ -1,131 +1,146 @@
 ---
-import ImageMod from "./ImageMod.astro";
-import NextJS from "./icons/IconNextjs.astro";
-import Tailwind from "./icons/IconTailwind.astro";
-import Unity from "./icons/IconUnity.astro";
-import Preact from "./icons/IconPreact.astro";
-import Js from "./icons/IconJs.astro";
-import Ts from "./icons/IconTs.astro";
-import IconWeb from "./icons/IconWeb.astro";
-import IconGithub from "./icons/IconGithub.astro";
-import IconReact from "./icons/IconReact.astro";
-import IconThreejs from "./icons/IconThreejs.astro";
-import IconExcalibur from "./icons/IconExcalibur.astro";
-import IconWarning from "./icons/IconWarning.astro";
+import ImageMod from './ImageMod.astro'
+import NextJS from './icons/IconNextjs.astro'
+import Tailwind from './icons/IconTailwind.astro'
+import Unity from './icons/IconUnity.astro'
+import Preact from './icons/IconPreact.astro'
+import Js from './icons/IconJs.astro'
+import Ts from './icons/IconTs.astro'
+import IconWeb from './icons/IconWeb.astro'
+import IconGithub from './icons/IconGithub.astro'
+import IconReact from './icons/IconReact.astro'
+import IconThreejs from './icons/IconThreejs.astro'
+import IconExcalibur from './icons/IconExcalibur.astro'
+import IconWarning from './icons/IconWarning.astro'
 
 const TAGS = {
   NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
+    name: 'Next.js',
+    class: 'bg-black text-white',
     icon: NextJS,
   },
   TAILWIND: {
-    name: "Tailwind CSS",
-    class: "bg-[#003159] text-white",
+    name: 'Tailwind CSS',
+    class: 'bg-[#003159] text-white',
     icon: Tailwind,
   },
   PREACT: {
-    name: "Preact",
-    class: "bg-[#673AB8] text-white",
+    name: 'Preact',
+    class: 'bg-[#673AB8] text-white',
     icon: Preact,
   },
   UNITY: {
-    name: "Unity",
-    class: "bg-[#000000] text-white",
+    name: 'Unity',
+    class: 'bg-[#000000] text-white',
     icon: Unity,
   },
   JS: {
-    name: "JavaScript",
-    class: "bg-[#F7DF1E] text-black",
+    name: 'JavaScript',
+    class: 'bg-[#F7DF1E] text-black',
     icon: Js,
   },
   TS: {
-    name: "TypeScript",
-    class: "bg-[#007ACC] text-white",
+    name: 'TypeScript',
+    class: 'bg-[#007ACC] text-white',
     icon: Ts,
   },
   REACT: {
-    name: "React",
-    class: "bg-[#61DAFB] text-black",
+    name: 'React',
+    class: 'bg-[#61DAFB] text-black',
     icon: IconReact,
   },
   THREEJS: {
-    name: "Three.js",
-    class: "bg-[#000000] text-white",
+    name: 'Three.js',
+    class: 'bg-[#000000] text-white',
     icon: IconThreejs,
   },
   EXCALIBUR: {
-    name: "Excalibur.js",
-    class: "bg-[#000000] text-white",
+    name: 'Excalibur.js',
+    class: 'bg-[#000000] text-white',
     icon: IconExcalibur,
   },
   WARNING: {
-    name: "WIP",
-    class: "bg-[#ffce00] text-black",
+    name: 'WIP',
+    class: 'bg-[#ffce00] text-black',
     icon: IconWarning,
   },
-};
+}
 
 const classicGames = [
   {
-    name: "Tetris TS",
-    blogUrl: "/blog/classic-tetris-typescript",
-    imageUrl: "/images/games/classic-tetris-typescript.png",
-    liveLink: "https://tetris-ts.vercel.app/",
-    githubLink: "https://github.com/manuelsanchezweb/tetris-ts",
+    name: 'Tetris TS',
+    blogUrl: '/blog/classic-tetris-typescript',
+    imageUrl: '/images/games/classic-tetris-typescript.png',
+    liveLink: 'https://tetris-ts.vercel.app/',
+    githubLink: 'https://github.com/manuelsanchezweb/tetris-ts',
     technologies: [TAGS.TS],
   },
   {
-    name: "Minesweeper TS (Web Accessible)",
-    blogUrl: "/blog/classic-minesweeper-typescript",
-    imageUrl: "/images/games/classic-minesweeper-typescript.png",
-    liveLink: "https://minesweeper-ts-xi.vercel.app/",
-    githubLink: "https://github.com/manuelsanchezweb/minesweeper-ts",
+    name: 'Minesweeper TS (Web Accessible)',
+    blogUrl: '/blog/classic-minesweeper-typescript',
+    imageUrl: '/images/games/classic-minesweeper-typescript.png',
+    liveLink: 'https://minesweeper-ts-xi.vercel.app/',
+    githubLink: 'https://github.com/manuelsanchezweb/minesweeper-ts',
     technologies: [TAGS.TS],
   },
   {
-    name: "Two-Player Bomberman TS",
-    blogUrl: "/blog/classic-bomberman-typescript",
-    imageUrl: "/images/games/classic-bomberman-typescript.png",
-    liveLink: "https://bomberman-ts.vercel.app/",
-    githubLink: "",
+    name: 'Two-Player Bomberman TS',
+    blogUrl: '/blog/classic-bomberman-typescript',
+    imageUrl: '/images/games/classic-bomberman-typescript.png',
+    liveLink: 'https://bomberman-ts.vercel.app/',
+    githubLink: '',
     technologies: [TAGS.TS],
   },
   {
-    name: "Hangman TS",
-    blogUrl: "/blog/classic-hangman-typescript",
-    imageUrl: "/images/games/classic-hangman-typescript.png",
-    liveLink: "https://hangman-ts-gamma.vercel.app/",
-    githubLink: "https://github.com/manuelsanchezweb/hangman-ts",
+    name: 'Hangman TS',
+    blogUrl: '/blog/classic-hangman-typescript',
+    imageUrl: '/images/games/classic-hangman-typescript.png',
+    liveLink: 'https://hangman-ts-gamma.vercel.app/',
+    githubLink: 'https://github.com/manuelsanchezweb/hangman-ts',
     technologies: [TAGS.TS, TAGS.REACT],
   },
   {
-    name: "Arkanoid TS",
-    blogUrl: "/blog/classic-arkanoid-typescript",
-    imageUrl: "/images/games/classic-arkanoid-typescript.png",
-    liveLink: "https://arkanoid-ts.vercel.app/",
+    name: 'Arkanoid TS',
+    blogUrl: '/blog/classic-arkanoid-typescript',
+    imageUrl: '/images/games/classic-arkanoid-typescript.png',
+    liveLink: 'https://arkanoid-ts.vercel.app/',
     technologies: [TAGS.TS],
   },
   {
-    name: "Quiz: How Good Is Your German?",
-    blogUrl: "/blog/classic-quiz-german-knowledge",
-    imageUrl: "/images/games/classic-quiz-german.png",
-    liveLink: "https://quiz-german-knowledge.vercel.app/",
-    githubLink: "https://github.com/manuelsanchezweb/quiz-german-knowledge",
+    name: 'Quiz: How Good Is Your German?',
+    blogUrl: '/blog/classic-quiz-german-knowledge',
+    imageUrl: '/images/games/classic-quiz-german.png',
+    liveLink: 'https://quiz-german-knowledge.vercel.app/',
+    githubLink: 'https://github.com/manuelsanchezweb/quiz-german-knowledge',
     technologies: [TAGS.TS, TAGS.REACT],
   },
   {
-    name: "Guess the character",
-    blogUrl: "/blog/classic-guess-the-character",
-    imageUrl: "/images/games/classic-guess-the-character.png",
-    liveLink: "https://ts-guess-the-character.vercel.app/",
+    name: 'Guess the character',
+    blogUrl: '/blog/classic-guess-the-character',
+    imageUrl: '/images/games/classic-guess-the-character.png',
+    liveLink: 'https://ts-guess-the-character.vercel.app/',
     technologies: [TAGS.TS, TAGS.REACT],
   },
-];
+  {
+    name: 'Related Words',
+    blogUrl: '/blog/classic-related-words',
+    imageUrl: '/images/games/classic-related-words.png',
+    liveLink: 'https://ts-react-related-words.vercel.app/',
+    githubLink: 'https://github.com/manuelsanchezweb/ts-react-related-words',
+    technologies: [TAGS.TS, TAGS.REACT],
+  },
+  {
+    name: 'Grid Based Logic Game',
+    blogUrl: '/blog/classic-detective-game',
+    imageUrl: '/images/games/classic-grid-based-logic-game.png',
+    liveLink: 'https://ts-react-detective-game.vercel.app/',
+    technologies: [TAGS.TS, TAGS.REACT],
+  },
+]
 ---
 
 <section
-  class="container mx-auto grid grid-cols-1 md:grid-cols-4 max-w-5xl gap-6 pt-2 pb-16"
+  class="container mx-auto grid grid-cols-1 md:grid-cols-5 max-w-5xl gap-6 pt-2 pb-16"
 >
   {
     classicGames.map((game, index) => (
@@ -144,18 +159,17 @@ const classicGames = [
             />
           </a>
           <div class="py-3 px-4">
-            <h3 class="font-bold text-xl leading-tight dark:text-light">
+            <h3 class="font-bold text-xl leading-tight dark:text-light min-h-[50px]">
               {game.name}
             </h3>
-            <p class="text-xs  mt-4 flex items-center">
+            <p class="text-xs mt-4 flex items-center">
               <ul class="flex flex-wrap gap-2 flex-row mb-2">
                 {game.technologies.map((tag) => (
-                  <li>
+                  <li title={tag.name}>
                     <span
                       class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
                     >
                       <tag.icon class="size-4" />
-                      {tag.name}
                     </span>
                   </li>
                 ))}
