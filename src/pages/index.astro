@@ -3,6 +3,7 @@ import Games from '@/components/Games.astro'
 import GamesClassic from '@/components/GamesClassic.astro'
 import GamesGodot from '@/components/GamesGodot.astro'
 import ImageMod from '@/components/ImageMod.astro'
+import ModalCampaign from '@/components/ModalCampaign.astro'
 import Base from '@/layouts/Base.astro'
 import { markdownify } from '@/lib/utils/textConverter'
 import type { Button } from '@/types'
@@ -22,6 +23,35 @@ const { hero }: Homepage = homepage.data
 ---
 
 <Base>
+  <ModalCampaign
+    triggerId="modal-campaign"
+    title="New Game In Progress!!!"
+    closeText="X"
+  >
+    <div class="text-center">
+      Hi! I've decided to create my first solo game! It's set in the Viking
+      world, and I'll be developing the entire game using Godot. If you'd like
+      to learn more and support my project, click here!
+    </div>
+
+    <figure>
+      <img
+        class="border border-black rounded-sm"
+        height="200"
+        width="300"
+        src="https://cdn.buymeacoffee.com/uploads/project_updates/2024/06/f3ec15e6dbbc43a1a66f1766d37f3bd9.png@800w_0e.webp"
+        alt="Preview of Whispers of Midgard, the new viking game developed by msweb"
+      />
+    </figure>
+    <a
+      class="btn btn-outline-primary mt-6"
+      rel="nofollow noopener"
+      target="_blank"
+      title="Info about the new viking game developed by msweb on new tab"
+      href="https://buymeacoffee.com/manuelsanwc">See more information</a
+    >
+  </ModalCampaign>
+
   <!-- Hero -->
   <section class="section pt-14 pb-8">
     <div class="container">
@@ -34,13 +64,18 @@ const { hero }: Homepage = homepage.data
             class="mb-4 text-4xl md:text-8xl"
           />
           <p set:html={markdownify(hero.content)} class="mb-8" />
-          {
-            hero.button.enable && (
-              <a class="btn btn-outline-primary" href={hero.button.link}>
-                {hero.button.label}
-              </a>
-            )
-          }
+          <div class="flex flex-col md:flex-row gap-3">
+            {
+              hero.button.enable && (
+                <a class="btn btn-outline-primary" href={hero.button.link}>
+                  {hero.button.label}
+                </a>
+              )
+            }
+            <button class="btn btn-primary" id="modal-campaign"
+              >Show me what you are doing now</button
+            >
+          </div>
         </div>
         {
           hero.image && (

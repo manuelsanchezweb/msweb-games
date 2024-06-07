@@ -35,7 +35,7 @@ const { title, description, author, categories, image, date, tags } = post.data
                 height={500}
                 width={1200}
                 alt={title}
-                class="w-full rounded"
+                class="w-full rounded border border-black"
                 format="webp"
               />
             </div>
@@ -102,10 +102,10 @@ const { title, description, author, categories, image, date, tags } = post.data
     <!-- Related posts -->
     <div class="section pb-0">
       <h3 class="h3 mb-12 text-center">Related Posts</h3>
-      <div class="row justify-center space-y-8">
+      <div class="row justify-center">
         {
           similarPosts.slice(0, 6).map((post) => (
-            <div class="lg:col-4">
+            <div class="lg:col-4 mb-8">
               <BlogCard data={post} />
             </div>
           ))

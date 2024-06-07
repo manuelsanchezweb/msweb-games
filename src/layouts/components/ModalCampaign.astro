@@ -1,0 +1,279 @@
+---
+interface Props {
+  triggerId: string
+  title: string
+  closeText?: string
+  children?: HTMLElement | HTMLElement[]
+}
+
+const { triggerId, title, closeText = 'Close' } = Astro.props
+---
+
+<dialog
+  class="modal max-w-[90%] md:max-w-[600px] text-center"
+  aria-labelledby={triggerId}
+>
+  <div class="modal__close">
+    <button>{closeText}</button>
+  </div>
+
+  <div class="modal__inner">
+    <div class="modal__content">
+      <h3 tabindex="-1">
+        {title}
+      </h3>
+      <slot>Modal description.</slot>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  /**
+   * Focusable elements within the modal that can be tabbed to.
+   */
+  type FocusableElement =
+    | HTMLAnchorElement
+    | HTMLButtonElement
+    | HTMLInputElement
+    | HTMLTextAreaElement
+    | HTMLSelectElement
+    | HTMLDetailsElement
+
+  // variables
+  let testMode = false
+  let modals = document.querySelectorAll<HTMLDialogElement>('.modal')
+
+  // abort controllers for global event listeners
+  let trapFocusController: AbortController | undefined
+  let keydownController: AbortController | undefined
+
+  /**
+   * Initialize local storage check for modal display.
+   * @returns {void}
+   */
+  const checkLocalStorage = (): void => {
+    const hasVisited = localStorage.getItem('hasVisited')
+    if (!hasVisited) {
+      modals.forEach((modal) => {
+        openModal(modal)
+        localStorage.setItem('hasVisited', 'true')
+      })
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', checkLocalStorage)
+
+  const getKeyboardFocusableElements = (element: HTMLElement) => {
+    return [
+      ...element.querySelectorAll<FocusableElement>(
+        'a, button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])'
+      ),
+    ].filter((el) => !el.hasAttribute('disabled'))
+  }
+
+  /**
+   * Trap focus within the modal, cycling through focusable elements.
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLDialogElement} modal - The modal element.
+   */
+  const trapFocus = (event: KeyboardEvent, modal: HTMLDialogElement) => {
+    const focusables = getKeyboardFocusableElements(modal)
+
+    // These will not be undefined as a modal always has at least one <button>
+    const firstFocusable = focusables[0]!
+    const lastFocusable = focusables[focusables.length - 1]!
+
+    if (
+      document.activeElement === lastFocusable &&
+      event.key === 'Tab' &&
+      !event.shiftKey
+    ) {
+      event.preventDefault()
+      firstFocusable.focus()
+    }
+
+    if (
+      document.activeElement === firstFocusable &&
+      event.key === 'Tab' &&
+      event.shiftKey
+    ) {
+      event.preventDefault()
+      lastFocusable.focus()
+    }
+  }
+
+  /**
+   * Open the modal dialog and manage focus within it.
+   * @param {HTMLDialogElement} modal - The modal to be displayed.
+   */
+  const openModal = (modal: HTMLDialogElement) => {
+    const modalTitle = modal.querySelector('h3')
+    const modalInner = modal.querySelector<HTMLDivElement>('.modal__inner')
+
+    console.log('clicked')
+
+    modal.showModal()
+    modalTitle!.focus()
+
+    trapFocusController = new AbortController()
+    keydownController = new AbortController()
+
+    document.addEventListener('keydown', (e) => trapFocus(e, modal), {
+      signal: trapFocusController.signal,
+    })
+
+    modal.addEventListener(
+      'keydown',
+      (event) => {
+        if (event.key === 'Escape') {
+          closeModal()
+        }
+      },
+      { signal: keydownController.signal }
+    )
+
+    modal.addEventListener(
+      'click',
+      () => {
+        closeModal()
+      },
+      { signal: keydownController.signal }
+    )
+
+    modalInner!.addEventListener(
+      'click',
+      (event) => {
+        event.stopPropagation()
+      },
+      { signal: keydownController.signal }
+    )
+  }
+
+  /**
+   * Close the modal dialog.
+   */
+  const closeModal = () => {
+    modals.forEach((modal) => {
+      const modalId = modal.getAttribute('aria-labelledby')
+      const modalTrigger = document.querySelector(
+        `#${modalId}`
+      ) as HTMLButtonElement
+      modalTrigger.focus({ preventScroll: true })
+      modal.close()
+      trapFocusController?.abort()
+      keydownController?.abort()
+    })
+  }
+
+  // execution
+  modals.forEach((modal) => {
+    const modalId = modal.getAttribute('aria-labelledby')
+    const modalCloseButton = modal.querySelector('.modal__close button')
+    const modalTrigger = document.querySelector(
+      `#${modalId}`
+    ) as HTMLButtonElement
+
+    if (!modalTrigger) {
+      throw new Error(`Trigger element not found. \n
+      Did you forget to add a trigger element with id: "${modalId}"?`)
+    }
+
+    modalTrigger.addEventListener('click', () => openModal(modal))
+    modalCloseButton!.addEventListener('click', closeModal)
+
+    if (testMode) modalTrigger.click()
+  })
+
+  window.close = closeModal
+
+  // Listen for view transitions
+  document.addEventListener('astro:after-swap', () => {
+    // reset variables
+    modals = document.querySelectorAll<HTMLDialogElement>('.modal')
+
+    // execution
+    modals.forEach((modal) => {
+      const modalId = modal.getAttribute('aria-labelledby')
+      const modalCloseButton = modal.querySelector('.modal__close button')
+      const modalTrigger = document.querySelector(`#${modalId}`)
+
+      if (!modalTrigger) {
+        throw new Error(`Trigger element not found. \n
+      Did you forget to add a trigger element with id: "${modalId}"?`)
+      }
+
+      modalTrigger.addEventListener('click', () => openModal(modal))
+      modalCloseButton!.addEventListener('click', closeModal)
+    })
+  })
+</script>
+
+<style is:global>
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    filter: blur(6px);
+  }
+
+  :where(.modal) {
+    color: black;
+    background-color: white;
+    border: 0.5rem solid black;
+    border-radius: 1rem;
+    padding: 0;
+  }
+
+  .modal__inner {
+    width: clamp(30ch, 70%, 75ch);
+    border-radius: 1rem;
+    width: 100%;
+  }
+
+  .modal__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 2rem;
+  }
+
+  .modal__close {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .modal__close button {
+    border: none;
+    background-color: lightgrey;
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+    color: black;
+    transition: background-color 0.15s ease-in-out;
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1rem;
+  }
+
+  .modal__close button:hover,
+  .modal__close button:focus {
+    background-color: grey;
+    text-decoration: underline;
+  }
+
+  /* Animation */
+  dialog[open],
+  dialog[open]::backdrop {
+    animation: fadein 0.3s ease-in-out;
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>

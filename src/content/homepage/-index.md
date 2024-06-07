@@ -6,6 +6,6 @@ hero:
   image: "/images/games/controller.png"
   button:
     enable: true
-    label: "See my last games!"
+    label: "Check the blog!"
     link: "/blog"
 ---
