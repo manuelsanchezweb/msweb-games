@@ -10,4 +10,6 @@ tags: ["godot"]
 draft: false
 ---
 
-More info coming soon!
+Work in Progress!
+
+Deploy link <a href="https://godot-space-shooter.netlify.app/" target="_blank">here!</a>
