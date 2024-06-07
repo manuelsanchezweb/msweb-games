@@ -1,49 +1,56 @@
 ---
-import Games from "@/components/Games.astro";
-import GamesClassic from "@/components/GamesClassic.astro";
-import ImageMod from "@/components/ImageMod.astro";
-import Base from "@/layouts/Base.astro";
-import { markdownify } from "@/lib/utils/textConverter";
-import type { Button } from "@/types";
-import { getEntry } from "astro:content";
+import Games from '@/components/Games.astro'
+import GamesClassic from '@/components/GamesClassic.astro'
+import GamesGodot from '@/components/GamesGodot.astro'
+import ImageMod from '@/components/ImageMod.astro'
+import Base from '@/layouts/Base.astro'
+import { markdownify } from '@/lib/utils/textConverter'
+import type { Button } from '@/types'
+import { getEntry } from 'astro:content'
 
 interface Homepage {
-  banner: {
-    title: string;
-    content: string;
-    image: string;
-    button: Button;
-  };
+  hero: {
+    title: string
+    content: string
+    image: string
+    button: Button
+  }
 }
 
-const homepage = await getEntry("homepage", "-index");
-const { banner }: Homepage = homepage.data;
+const homepage = await getEntry('homepage', '-index')
+const { hero }: Homepage = homepage.data
 ---
 
 <Base>
-  <!-- Banner -->
-  <section class="section pt-14 pb-4">
+  <!-- Hero -->
+  <section class="section pt-14 pb-8">
     <div class="container">
-      <div class="row justify-center">
-        <div class="text-center lg:col-7">
-          <h1 set:html={markdownify(banner.title)} class="mb-4 text-8xl" />
-          <p set:html={markdownify(banner.content)} class="mb-8" />
+      <div
+        class="flex flex-col md:flex-row gap-6 items-center md:justify-between"
+      >
+        <div class="text-center md:text-left">
+          <h1
+            set:html={markdownify(hero.title)}
+            class="mb-4 text-4xl md:text-8xl"
+          />
+          <p set:html={markdownify(hero.content)} class="mb-8" />
           {
-            banner.button.enable && (
-              <a class="btn btn-primary" href={banner.button.link}>
-                {banner.button.label}
+            hero.button.enable && (
+              <a class="btn btn-outline-primary" href={hero.button.link}>
+                {hero.button.label}
               </a>
             )
           }
         </div>
         {
-          banner.image && (
-            <div class="col-12">
+          hero.image && (
+            <div>
               <ImageMod
-                src={banner.image}
-                height={380}
-                width={1200}
-                alt="banner image"
+                class="max-w-[200px] md:max-w-[400px]"
+                src={hero.image}
+                height={570}
+                width={500}
+                alt="hero image"
                 format="webp"
               />
             </div>
@@ -52,20 +59,36 @@ const { banner }: Homepage = homepage.data;
       </div>
     </div>
   </section>
-  <!-- /Banner -->
+  <!-- Hero -->
+
+  <section class="section pt-14 pb-4">
+    <div class="flex flex-col items-center container text-center gap-5 mx-auto">
+      <h2>Godot Games</h2>
+      <p class="md:text-left">
+        After having tried a lot of game engines and gathered some experience on
+        Web Game Development, I have decided to invest some time on Godot. I
+        will show you some of the things I have created here.
+      </p>
+    </div>
+  </section>
+
+  <!-- Games -->
+  <GamesGodot />
+  <!-- Games -->
 
   <section class="section pt-14 pb-4">
     <div class="container text-center">
-      <h2>Classical Games</h2>
+      <h2>Classical Games (Web)</h2>
     </div>
   </section>
+
   <!-- Games -->
   <GamesClassic />
   <!-- Games -->
 
   <section class="section pt-14 pb-4">
     <div class="container text-center">
-      <h2>The coolest of the coolest</h2>
+      <h2>The coolest of the coolest (Web)</h2>
     </div>
   </section>
   <!-- Games -->

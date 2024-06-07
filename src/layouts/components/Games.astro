@@ -131,10 +131,10 @@ const games = [
     {
       games.slice(0, 6).map((game, index) => (
         <div class="col-span-1 relative group">
-          <div class="top-0 hover:-top-2 border rounded-xl border-black bg-white overflow-hidden">
+          <div class="top-0 hover:-top-2 border rounded-sm border-black bg-white overflow-hidden">
             <a
               href={game.blogUrl}
-              class="transition-all duration-75 ease-in-out h-full block squiggle"
+              class="transition-all duration-75 ease-in-out h-full block"
             >
               <ImageMod
                 class="border border-black opacity-70 group-hover:opacity-100 transition-all duration-75 ease-in-out aspect-video object-cover"
@@ -191,7 +191,7 @@ const games = [
   </div>
   <a
     href="/blog"
-    class="text-center text-lg font-bold text-black dark:text-light w-full flex justify-center mt-12"
+    class="btn btn-outline-primary text-center text-lg font-bold text-black dark:text-light w-fit flex justify-center mt-12 mx-auto"
   >
     More Games
   </a>

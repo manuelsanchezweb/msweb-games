@@ -1,10 +1,11 @@
 ---
-# Banner
-banner:
-  title: "Latest games"
-  content: "Check all the cool things I have been doing!"
+# Hero
+hero:
+  title: "Welcome to msweb games!"
+  content: "If you are interesting in creating video games with web technologies or game engines, you might like this page!"
+  image: "/images/games/controller.png"
   button:
-    enable: false
-    label: "Get Started For Free"
-    link: "https://github.com/zeon-studio/astroplate"
+    enable: true
+    label: "See my last games!"
+    link: "/blog"
 ---

@@ -1,9 +1,8 @@
 ---
-import config from "@/config/config.json";
-import ImageMod from "./ImageMod.astro";
+import config from '@/config/config.json'
+import ImageMod from './ImageMod.astro'
 
-const { src, srcDarkmode }: { src?: string; srcDarkmode?: string } =
-  Astro.props;
+const { src, srcDarkmode }: { src?: string; srcDarkmode?: string } = Astro.props
 const {
   logo,
   logo_darkmode,
@@ -12,15 +11,15 @@ const {
   logo_text,
   title,
 }: {
-  logo: string;
-  logo_darkmode: string;
-  logo_width: any;
-  logo_height: any;
-  logo_text: string;
-  title: string;
-} = config.site;
+  logo: string
+  logo_darkmode: string
+  logo_width: any
+  logo_height: any
+  logo_text: string
+  title: string
+} = config.site
 
-const { theme_switcher }: { theme_switcher: boolean } = config.settings;
+const { theme_switcher }: { theme_switcher: boolean } = config.settings
 ---
 
 <a
@@ -30,9 +29,9 @@ const { theme_switcher }: { theme_switcher: boolean } = config.settings;
   {
     src || srcDarkmode || logo || logo_darkmode ? (
       <>
-        <p class="dark:hidden">manuelsanchezweb - games</p>
+        <p class="dark:hidden">msweb - games</p>
         {theme_switcher && (
-          <p class="hidden dark:inline-block">manuelsanchezweb - games</p>
+          <p class="hidden dark:inline-block">msweb - games</p>
         )}
       </>
     ) : logo_text ? (

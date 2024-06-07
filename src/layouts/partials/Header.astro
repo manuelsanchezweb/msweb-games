@@ -1,28 +1,28 @@
 ---
-import Logo from "@/components/Logo.astro";
-import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
-import config from "@/config/config.json";
-import menu from "@/config/menu.json";
-import { IoSearch } from "react-icons/io5/index.js";
+import Logo from '@/components/Logo.astro'
+import ThemeSwitcher from '@/components/ThemeSwitcher.astro'
+import config from '@/config/config.json'
+import menu from '@/config/menu.json'
+import { IoSearch } from 'react-icons/io5/index.js'
 
 export interface ChildNavigationLink {
-  name: string;
-  url: string;
+  name: string
+  url: string
 }
 
 export interface NavigationLink {
-  name: string;
-  url: string;
-  hasChildren?: boolean;
-  children?: ChildNavigationLink[];
+  name: string
+  url: string
+  hasChildren?: boolean
+  children?: ChildNavigationLink[]
 }
 
-const { main }: { main: NavigationLink[] } = menu;
-const { navigation_button, settings } = config;
-const { pathname } = Astro.url;
+const { settings } = config
 ---
 
-<header class={`header z-30 ${settings.sticky_header && "sticky top-0"}`}>
+<header
+  class={`header z-30 shadow border-b border-black  ${settings.sticky_header && 'sticky top-0'}`}
+>
   <nav class="navbar container">
     <!-- logo -->
     <div class="">
@@ -42,9 +42,6 @@ const { pathname } = Astro.url;
         )
       }
       <ThemeSwitcher className="mr-5" />
-    </div>
-
-    <div class="absolute -bottom-5 w-full border-b-2 border-black squiggle">
     </div>
   </nav>
 </header>

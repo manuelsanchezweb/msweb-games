@@ -150,15 +150,15 @@ const classicGames = [
   class="container mx-auto grid grid-cols-1 md:grid-cols-5 max-w-5xl gap-6 pt-2 pb-16"
 >
   {
-    classicGames.map((game, index) => (
+    classicGames.map((game) => (
       <div class="col-span-1 relative group">
-        <div class="top-0 hover:-top-2 border rounded-xl border-black bg-white overflow-hidden">
+        <div class="top-0 hover:-top-2 group-focus:-top-2 border rounded-sm border-black bg-white overflow-hidden">
           <a
             href={game.blogUrl}
-            class="transition-all duration-75 ease-in-out h-full block squiggle"
+            class="transition-all duration-75 ease-in-out h-full block"
           >
             <ImageMod
-              class="border border-black opacity-70 group-hover:opacity-100 transition-all duration-75 ease-in-out aspect-video object-cover"
+              class="border border-black opacity-70 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-75 ease-in-out aspect-video object-cover"
               src={game.imageUrl}
               alt={game.name}
               width={700}
@@ -184,13 +184,13 @@ const classicGames = [
             </p>
           </div>
         </div>
-        <header class="scale-0 group-hover:scale-100 transition-transform duration-300 gap-x-1 items-end justify-start mt-4 absolute top-2 right-2 z-10">
+        <header class="scale-0 group-hover:scale-100 group-focus:scale-100 transition-transform duration-300 gap-x-1 items-end justify-start mt-4 absolute top-2 right-2 z-10">
           {game.githubLink && (
             <a
               target="_blank"
               rel="noopener noreferrer"
               href={game.githubLink}
-              class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110"
+              class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110 focus:scale-110"
             >
               <IconGithub class="size-6" />
             </a>
@@ -200,7 +200,7 @@ const classicGames = [
               target="_blank"
               rel="noopener noreferrer"
               href={game.liveLink}
-              class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110"
+              class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110 focus:scale-110"
             >
               <IconWeb class="size-6" />
             </a>

@@ -1,0 +1,60 @@
+---
+import ImageMod from './ImageMod.astro'
+import IconWeb from './icons/IconWeb.astro'
+
+const godotGames = [
+  {
+    name: 'Pizza Legends',
+    blogUrl: '/blog/godot-pizza-legends',
+    imageUrl: '/images/games/godot-pizza-legends.png',
+    liveLink: 'https://godot-pizza-legends.netlify.app/',
+  },
+  {
+    name: 'Space Shooter',
+    blogUrl: '/blog/godot-space-shooter',
+    imageUrl: '/images/games/godot-space-shooter.png',
+  },
+]
+---
+
+<section
+  class="container mx-auto grid md:grid-cols-2 place-items-center max-w-5xl gap-6 pt-2 pb-16"
+>
+  {
+    godotGames.map((game) => (
+      <div class="relative group">
+        <div class="top-0 hover:-top-2 group-focus:-top-2 border rounded-sm border-black bg-white overflow-hidden">
+          <a
+            href={game.blogUrl}
+            class="transition-all duration-75 ease-in-out h-full block"
+          >
+            <ImageMod
+              class="border border-black opacity-70 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-75 ease-in-out aspect-video object-cover"
+              src={game.imageUrl}
+              alt={game.name}
+              width={700}
+              height={500}
+            />
+          </a>
+          <div class="py-3 px-4">
+            <h3 class="font-bold text-xl leading-tight dark:text-light min-h-[50px]">
+              {game.name}
+            </h3>
+          </div>
+        </div>
+        <header class="scale-0 group-hover:scale-100 group-focus:scale-100 transition-transform duration-300 gap-x-1 items-end justify-start mt-4 absolute top-2 right-2 z-10">
+          {game.liveLink && (
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={game.liveLink}
+              class="bg-white border dark:border-white/10 border-gray-300 rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 text-xs md:text-base transition hover:scale-110 focus:scale-110"
+            >
+              <IconWeb class="size-6" />
+            </a>
+          )}
+        </header>
+      </div>
+    ))
+  }
+</section>
