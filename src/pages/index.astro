@@ -6,6 +6,7 @@ import ImageMod from '@/components/ImageMod.astro'
 import ModalCampaign from '@/components/ModalCampaign.astro'
 import Base from '@/layouts/Base.astro'
 import { markdownify } from '@/lib/utils/textConverter'
+import BuyMeACoffeeButton from '@/partials/BuyMeACoffeeButton.astro'
 import type { Button } from '@/types'
 import { getEntry } from 'astro:content'
 
@@ -44,7 +45,7 @@ const { hero }: Homepage = homepage.data
       />
     </figure>
     <a
-      class="btn btn-outline-primary mt-6"
+      class="btn btn-outline-primary mt-6 dark:!text-black"
       rel="nofollow noopener"
       target="_blank"
       title="Info about the new viking game developed by msweb on new tab"

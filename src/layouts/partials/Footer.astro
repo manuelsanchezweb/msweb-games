@@ -5,6 +5,7 @@ import config from '@/config/config.json'
 import menu from '@/config/menu.json'
 import social from '@/config/social.json'
 import { markdownify } from '@/lib/utils/textConverter'
+import BuyMeACoffeeButton from './BuyMeACoffeeButton.astro'
 
 const { footer }: { footer: { name: string; url: string }[] } = menu
 ---
@@ -16,12 +17,7 @@ const { footer }: { footer: { name: string; url: string }[] } = menu
         class="flex flex-col gap-2 mb-8 text-center lg:col-3 lg:mb-0 lg:text-left"
       >
         <Logo />
-        <a
-          title="Buy me a coffee webpage"
-          rel="nofollow noopener"
-          target="_blank"
-          href="https://buymeacoffee.com/manuelsanwc">How can you help me?</a
-        >
+        <BuyMeACoffeeButton />
       </div>
       <div class="mb-8 text-center lg:col-6 lg:mb-0">
         <ul>
